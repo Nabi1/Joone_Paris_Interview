@@ -1,0 +1,43 @@
+{
+  "name": "joone_interview_app",
+  "version": "1.0.0",
+  "license": "thibautC",
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/data-grid": "^4.0.0-alpha.8",
+    "@material-ui/icons": "^4.9.1",
+    "bootstrap": "^3.4.1",
+    "prop-types": "latest",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "devDependencies": {
+    "enzyme-adapter-react-16": "^1.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "expect": "^21.2.1",
+    "jest-junit-reporter": "^1.1.0",
+    "prettier": "^2.0.5",
+    "react-test-renderer": "^16.2.0",
+    "sinon": "^6.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:5000/",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

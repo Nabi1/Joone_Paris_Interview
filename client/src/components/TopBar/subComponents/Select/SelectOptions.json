@@ -1,0 +1,18 @@
+ [
+  {
+    "label": "Nom",
+    "value": "title"
+  },
+  {
+    "label": "Vendeur",
+    "value": "vendor"
+  },
+  {
+    "label": "Id",
+    "value": "id"
+  },
+   {
+     "label": "Description",
+     "value": "description"
+   }
+]
