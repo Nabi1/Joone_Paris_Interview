@@ -14,14 +14,13 @@ export const SearchBar = ({
   const handleSearchValue = (event) => {
     if (filterBy.length > 0) {
       setErrorFilterBy(false);
-      console.log('event.target.value :', event.target.value);
       return setSearchValue(event.target.value);
     }
     return setErrorFilterBy(true);
   };
   return (
     <TextField
-      placeholder="Recherche"
+      placeholder="Recherche de votre futur produit Joone"
       variant="outlined"
       className={props.className}
       name="searchValue"
@@ -29,9 +28,6 @@ export const SearchBar = ({
         if (e.key === 'Enter') {
           handleSearchValue(e);
         }
-      }}
-      onBlur={(e) => {
-        handleSearchValue(e);
       }}
       InputProps={{
         startAdornment: (

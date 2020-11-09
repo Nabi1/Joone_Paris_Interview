@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Header } from './Header';
 import { ProductsContainer } from './Products/Products.container';
-import { TopBar } from './TopBar/TopBar';
+import { SearchArea } from './SearchArea/SearchArea';
 
 export const Home = () => {
   const [filterBy, setFilterBy] = useState('');
@@ -12,7 +12,7 @@ export const Home = () => {
     <div className="m-auto justify-content-center align-items-stretch w-75 ">
       <Header />
       <div className="d-flex w-100 mt-3">
-        <TopBar
+        <SearchArea
           setSearchValue={setSearchValue}
           filterBy={filterBy}
           setFilterBy={setFilterBy}

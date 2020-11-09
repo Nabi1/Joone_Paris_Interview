@@ -2,20 +2,23 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import { SearchBar } from './subComponents/SearchBar';
-import { Select } from './subComponents/Select/Select';
+import { Select } from "../shared/Select";
 
-export const TopBar = ({ filterBy, setFilterBy, setSearchValue }) => {
+const options = require('./searhcAreaOptions.json')
+
+export const SearchArea = ({ filterBy, setFilterBy, setSearchValue }) => {
   const [errorFilterBy, setErrorFilterBy] = useState(false);
 
   return (
     <div className="d-flex w-100 mt-3">
       <Select
+        className="mr-3"
+        options={options}
         errorFilterBy={errorFilterBy}
-        className=""
         filterBy={filterBy}
         fullWidth
+        minWith={250}
         setFilterBy={setFilterBy}
-        variant="outlined"
         setErrorFilterBy={setErrorFilterBy}
       />
       <SearchBar
@@ -28,7 +31,7 @@ export const TopBar = ({ filterBy, setFilterBy, setSearchValue }) => {
   );
 };
 
-TopBar.propTypes = {
+SearchArea.propTypes = {
   filterBy: PropTypes.string.isRequired,
   setFilterBy: PropTypes.func.isRequired,
   setSearchValue: PropTypes.func.isRequired,

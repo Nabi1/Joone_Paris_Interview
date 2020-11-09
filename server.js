@@ -13,7 +13,7 @@ app.get("/products", (req, res) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-Shopify-Access-Token": "YOUR_TOKEN_ACCESS"
+      "X-Shopify-Access-Token": process.env.TOKEN_ACCESS
     },
     body: JSON.stringify({
       query: `{

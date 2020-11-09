@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-
-const options = require('./SelectOptions.json');
 
 export const Select = ({
   filterBy,
   setFilterBy,
   errorFilterBy,
   setErrorFilterBy,
+  options,
+  ...props
 }) => {
+
   useEffect(() => {
     if (filterBy.length > 0) {
       setErrorFilterBy(false);
@@ -20,9 +21,8 @@ export const Select = ({
   }, [filterBy]);
 
   return (
-    <FormControl style={{ minWidth: 250 }}>
+    <FormControl style={{ minWidth: props.minWith }}>
       <TextField
-        className="mr-3"
         error={errorFilterBy}
         id="select-by"
         label="Filter par"
@@ -30,6 +30,7 @@ export const Select = ({
         select
         value={filterBy}
         variant="outlined"
+        className={props.className}
       >
         {options.map((option) => (
           <MenuItem key={option.value} value={option.value}>
@@ -45,4 +46,8 @@ Select.propTypes = {
   setFilterBy: PropTypes.func.isRequired,
   errorFilterBy: PropTypes.bool.isRequired,
   setErrorFilterBy: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label:PropTypes.string,
+    value:PropTypes.string,
+  })).isRequired,
 };
