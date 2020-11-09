@@ -1,4 +1,5 @@
-# Joone Interview FullStack App (React / Graphql / NodeJs)
+# Joone Interview FullStack App (React / Graphql / NodeJs) ![alt text](https://cdn.shopify.com/s/files/1/1956/4693/files/flavicon-joone_small.png?v=1545216161)
+
 
 > Thanks for giving my the opportunity to do this interview.
 
