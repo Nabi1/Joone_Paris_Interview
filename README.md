@@ -1,8 +1,11 @@
 # Joone Interview FullStack App (React / Graphql / NodeJs)
 
-> Before going further, you should get the provided ACCESS_TOKEN from the last email  I send to Maria R. (Your favorite Talent & Acquisition Specialist).
->
 > Thanks for giving my the opportunity to do this interview.
+
+> Before going further, you should get the provided ACCESS_TOKEN from the last email  I send to Maria R. (Your favorite Talent & Acquisition Specialist).
+
+>Usually this ACCESS_TOKEN should be listed in a config file like .env
+
 
 ## Usage
 
@@ -12,27 +15,29 @@ Install [nodemon](https://github.com/remy/nodemon) globally
 npm i nodemon -g
 ```
 
-Install server and client dependencies
+Install client dependencies
 
 ```
-yarn
 cd client
 yarn
 ```
-
-Add your ACCESS_TOKEN in server.js. 
+Install server dependencies
 
 ```
-    headers: {
-      "Content-Type": "application/json",
-      "X-Shopify-Access-Token": "YOUR_TOKEN_ACCESS"
-    },
+cd ../server
+yarn
 ```
-To start the server and client at the same time (from the root of the project)
+
+Add your ACCESS_TOKEN in .env file (in server folder )
+
+```
+TOKEN_ACCESS='YOUR_TOKEN_ACCESS'
+```
+
+To start the server and client at the same time (from the server folder of the project)
 
 ```
 yarn dev
 ```
-
 
 Thibaut Cointet

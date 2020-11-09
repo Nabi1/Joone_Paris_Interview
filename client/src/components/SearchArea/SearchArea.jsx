@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import { SearchBar } from './subComponents/SearchBar';
-import { Select } from "../shared/Select";
+import { Select } from '../shared/Select';
 
-const options = require('./searhcAreaOptions.json')
+const options = require('./searhcAreaOptions.json');
 
 export const SearchArea = ({ filterBy, setFilterBy, setSearchValue }) => {
   const [errorFilterBy, setErrorFilterBy] = useState(false);
