@@ -32,13 +32,22 @@ yarn
 Add your ACCESS_TOKEN in .env file (in server folder )
 
 ```
-TOKEN_ACCESS='YOUR_TOKEN_ACCESS'
-```
+ACCESS_TOKEN='ACCESS_TOKEN'
 
 To start the server and client at the same time (from the server folder of the project)
 
 ```
 yarn dev
+```
+
+```
+## Troubleshooting
+If your app is rendering an empty table add your ACCESS_TOKEN directly in server/controllers/product.js
+```
+    headers: {
+      "Content-Type": "application/json",
+      "X-Shopify-Access-Token": 'YOUR_ACCESS_TOKEN'
+    },
 ```
 
 Thibaut Cointet

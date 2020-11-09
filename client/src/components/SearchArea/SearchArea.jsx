@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { SearchBar } from './subComponents/SearchBar';
 import { Select } from '../shared/Select';
 
-const options = require('./searhcAreaOptions.json');
+const options = require('./searchAreaOptions.json');
 
 export const SearchArea = ({ filterBy, setFilterBy, setSearchValue }) => {
   const [errorFilterBy, setErrorFilterBy] = useState(false);
