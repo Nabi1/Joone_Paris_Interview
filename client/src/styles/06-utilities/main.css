@@ -1,4 +1,0 @@
-/** Resolve conflicts between MUI and Bootstrap **/
-button:focus, button:hover {
-  outline: none;
-}
