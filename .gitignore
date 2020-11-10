@@ -1,1 +1,6 @@
 .env
+node_modules/
+/settings.json
+.idea/
+.idea/**/libraries
+public/home/

@@ -1,13 +1,12 @@
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
-// Use Bit component build and shared by my Strateos colleagues and myself
-import ListComponent from '@bit/strateosdev.strateosdev.ui.generic.list';
-import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Paper from '@material-ui/core/Paper';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 
 import { Styles } from './Products.styles';
+import List from '../shared/List/List';
 
 const listConfig = require('../SearchArea/searchAreaOptions.json');
 
@@ -26,7 +25,7 @@ export const Products = ({
     if (!searchValue || filterBy.length === 0) {
       return setProductsToDisplay(products);
     }
-    // replace by regex
+    // TODO : Use Regex to properly filter by insensitive case
     filteredProducts = products.filter((product) => {
       if (typeof product.node[filterBy] === 'number') {
         return product.node[filterBy] === parseInt(searchValue, 10);
@@ -58,6 +57,7 @@ export const Products = ({
   /**
    *
    * @param item {Object}
+   * @param item.id {String}
    * @param item.description {String}
    * @param item.title {String}
    * @param item.totalInventory {Number}
@@ -75,6 +75,7 @@ export const Products = ({
   /**
    *
    * @param item {Object}
+   * @param item.id {String}
    * @param item.description {String}
    * @param item.title {String}
    * @param item.totalInventory {Number}
@@ -95,7 +96,7 @@ export const Products = ({
   return (
     <Paper className="d-flex w-100 p-3 mt-5 mb-3" elevation={5}>
       <Styles.List className="mt-5">
-        <ListComponent
+        <List
           clickableRows
           listSize={10}
           totalElt={10}
