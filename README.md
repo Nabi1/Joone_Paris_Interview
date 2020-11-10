@@ -1,4 +1,5 @@
-# Joone Interview FullStack App (React / Graphql / NodeJs) ![alt text](https://cdn.shopify.com/s/files/1/1956/4693/files/flavicon-joone_small.png?v=1545216161)
+# ![alt text](https://cdn.shopify.com/s/files/1/1956/4693/files/flavicon-joone_small.png?v=1545216161) Joone Interview FullStack App  ![alt text](https://cdn.shopify.com/s/files/1/1956/4693/files/flavicon-joone_small.png?v=1545216161)
+### React / Graphql / NodeJs / Express
 
 
 > Thanks for giving my the opportunity to do this interview.
@@ -13,33 +14,31 @@
 Install [nodemon](https://github.com/remy/nodemon) globally
 
 ```
-npm i nodemon -g
+$ npm i nodemon -g
 ```
 
 Install client dependencies
 
 ```
-cd client
-yarn
+$ cd client
+$ yarn
 ```
 Install server dependencies
 
 ```
-cd ../server
-yarn
+$ cd ../server
+$ yarn
 ```
 
 Add your ACCESS_TOKEN in .env file (in server folder )
 
 ```
 ACCESS_TOKEN='ACCESS_TOKEN'
-
+```
 To start the server and client at the same time (from the server folder of the project)
 
 ```
-yarn dev
-```
-
+$ yarn dev 
 ```
 ## Troubleshooting
 If your app is rendering an empty table add your ACCESS_TOKEN directly in server/controllers/product.js

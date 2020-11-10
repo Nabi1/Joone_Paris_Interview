@@ -9,6 +9,6 @@ const products = require('./routes/products');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/products', products);
+app.use('/', products);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

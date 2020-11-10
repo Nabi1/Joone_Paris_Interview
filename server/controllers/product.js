@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const getProducts = ()=> async (req, res) => {
+const getProducts = () => async (req, res) => {
   fetch("https://jooneparis.myshopify.com/admin/api/graphql.json", {
     method: "POST",
     headers: {
