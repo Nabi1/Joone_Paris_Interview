@@ -4,7 +4,8 @@
 
 > Thanks for giving my the opportunity to do this interview.
 
-> Before going further, you should get the provided ACCESS_TOKEN from the last email  I send to Maria R. (Your favorite Talent & Acquisition Specialist).
+> Before going further, you should get the provided ACCESS_TOKEN from the last email I send to Maria R. (Your favorite Talent & Acquisition Specialist).
+> This ACCESS_TOKEN also the Password that Maria send me.
 
 >Usually this ACCESS_TOKEN should be listed in a config file like .env
 
