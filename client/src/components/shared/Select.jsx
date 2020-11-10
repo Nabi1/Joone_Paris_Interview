@@ -6,19 +6,18 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 
 export const Select = ({
-  filterBy,
-  setFilterBy,
   errorFilterBy,
-  setErrorFilterBy,
+  setError,
   options,
+  value,
+  onChange,
   ...props
 }) => {
-
   useEffect(() => {
-    if (filterBy.length > 0) {
-      setErrorFilterBy(false);
+    if (value.length > 0) {
+      setError(false);
     }
-  }, [filterBy]);
+  }, [value]);
 
   return (
     <FormControl style={{ minWidth: props.minWith }}>
@@ -26,9 +25,9 @@ export const Select = ({
         error={errorFilterBy}
         id="select-by"
         label="Filter par"
-        onChange={(e) => setFilterBy(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         select
-        value={filterBy}
+        value={value}
         variant="outlined"
         className={props.className}
       >
@@ -42,12 +41,14 @@ export const Select = ({
   );
 };
 Select.propTypes = {
-  filterBy: PropTypes.string.isRequired,
-  setFilterBy: PropTypes.func.isRequired,
   errorFilterBy: PropTypes.bool.isRequired,
-  setErrorFilterBy: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    label:PropTypes.string,
-    value:PropTypes.string,
-  })).isRequired,
+  onChange: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+    }),
+  ).isRequired,
 };

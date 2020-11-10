@@ -3,8 +3,14 @@ import React, { useState, useEffect } from 'react';
 
 import { Products } from './Products';
 
-export const ProductsContainer = ({ searchValue, filterBy }) => {
+export const ProductsContainer = ({
+  setSelectedProducts,
+  selectedProducts,
+  searchValue,
+  filterBy,
+}) => {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     const result = getProducts();
     result
@@ -26,14 +32,26 @@ export const ProductsContainer = ({ searchValue, filterBy }) => {
 
   return (
     <Products
+      setSelectedProducts={setSelectedProducts}
       products={products}
       filterBy={filterBy}
       searchValue={searchValue}
+      selectedProducts={selectedProducts}
     />
   );
 };
 
 ProductsContainer.propTypes = {
   filterBy: PropTypes.string.isRequired,
+  setSelectedProducts: PropTypes.func.isRequired,
   searchValue: PropTypes.string.isRequired,
+  selectedProducts: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+      id: PropTypes.string,
+      title: PropTypes.string,
+      totalInventory: PropTypes.number,
+      vendor: PropTypes.string,
+    }),
+  ).isRequired,
 };

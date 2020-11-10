@@ -1,18 +1,26 @@
  [
   {
     "label": "Nom",
-    "value": "title"
+    "value": "title",
+    "id": "title"
   },
   {
     "label": "Vendeur",
-    "value": "vendor"
+    "value": "vendor",
+    "id": "vendor"
   },
   {
     "label": "Id",
-    "value": "id"
+    "value": "id",
+    "id": "id"
   },
    {
      "label": "Description",
-     "value": "description"
+     "value": "description",
+     "id": "description"
+   }  , {
+     "label": "Stock",
+     "value": "totalInventory",
+     "id": "totalInventory"
    }
 ]

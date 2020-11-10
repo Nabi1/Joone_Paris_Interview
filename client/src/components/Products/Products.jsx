@@ -1,28 +1,38 @@
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+// Use Bit component build and shared by my Strateos colleagues and myself
+import ListComponent from '@bit/strateosdev.strateosdev.ui.generic.list';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { DataGrid } from '@material-ui/data-grid';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Paper from '@material-ui/core/Paper';
 
 import { Styles } from './Products.styles';
 
-export const Products = ({ products, searchValue, filterBy }) => {
+const listConfig = require('../SearchArea/searchAreaOptions.json');
+
+export const Products = ({
+  products,
+  searchValue,
+  filterBy,
+  setSelectedProducts,
+  selectedProducts,
+}) => {
   const [productsToDisplay, setProductsToDisplay] = useState([]);
 
-  const headerList = [
-    { field: 'title', headerName: 'Nom', width: 200 },
-    { field: 'vendor', headerName: 'Vendeur', width: 140 },
-    { field: 'id', headerName: 'ID', width: 120 },
-    { field: 'description', headerName: 'Description', width: 600 },
-    { field: 'totalInventory', headerName: 'Stock' },
-  ];
   const filterProducts = () => {
     let filteredProducts = [];
 
-    if (searchValue === 0 || filterBy.length === 0) {
+    if (!searchValue || filterBy.length === 0) {
       return setProductsToDisplay(products);
     }
-    filteredProducts = products.filter((product) =>
-      product.node[filterBy].toLowerCase().includes(searchValue.toLowerCase()),
-    );
+    // replace by regex
+    filteredProducts = products.filter((product) => {
+      if (typeof product.node[filterBy] === 'number') {
+        return product.node[filterBy] === parseInt(searchValue, 10);
+      }
+      return product.node[filterBy].includes(searchValue);
+    });
     return setProductsToDisplay(filteredProducts);
   };
 
@@ -31,45 +41,93 @@ export const Products = ({ products, searchValue, filterBy }) => {
   }, [searchValue, filterBy, products]);
 
   const rows = productsToDisplay.map((product) => {
-    const {
-      description,
-      id,
-      tags,
-      title,
-      totalInventory,
-      vendor,
-    } = product.node;
+    const { description, id, title, totalInventory, vendor } = product.node;
 
     return {
-      description,
+      description: `${description.substring(0, 250)}...`,
       id: id.split('Product/')[1],
       title,
-      tags,
       totalInventory,
       vendor,
     };
   });
 
+  const isItemAlreadySelected = (item) =>
+    selectedProducts.filter((product) => product.id === item.id).length > 0;
+
+  /**
+   *
+   * @param item {Object}
+   * @param item.description {String}
+   * @param item.title {String}
+   * @param item.totalInventory {Number}
+   * @param item.vendor {String}
+   */
+  const handleSelectedProducts = (item) => {
+    if (selectedProducts.length > 0 && isItemAlreadySelected(item)) {
+      return setSelectedProducts(
+        selectedProducts.filter((product) => product.id !== item.id),
+      );
+    }
+    return setSelectedProducts([...selectedProducts, item]);
+  };
+
+  /**
+   *
+   * @param item {Object}
+   * @param item.description {String}
+   * @param item.title {String}
+   * @param item.totalInventory {Number}
+   * @param item.vendor {String}
+   */
+  const addItem = (item) => {
+    return (
+      <Button
+        title="Visualiser le besoin"
+        color="secondary"
+        className="text-dark"
+        onClick={() => handleSelectedProducts(item)}
+      >
+        {isItemAlreadySelected(item) ? <DeleteIcon /> : <AddIcon />}
+      </Button>
+    );
+  };
   return (
-    <Styles.List className="mt-5">
-      <DataGrid
-        rows={rows}
-        columns={headerList}
-        pageSize={10}
-        autoHeight
-        checkboxSelection
-      />
-    </Styles.List>
+    <Paper className="d-flex w-100 p-3 mt-5 mb-3" elevation={5}>
+      <Styles.List className="mt-5">
+        <ListComponent
+          clickableRows
+          listSize={10}
+          totalElt={10}
+          data={rows}
+          listConfig={listConfig}
+          page={1}
+          actions={[addItem]}
+        />
+      </Styles.List>
+    </Paper>
   );
 };
 
 Products.propTypes = {
   filterBy: PropTypes.string.isRequired,
   searchValue: PropTypes.string.isRequired,
-  products: PropTypes.arrayOf(
+  setSelectedProducts: PropTypes.func.isRequired,
+  selectedProducts: PropTypes.arrayOf(
     PropTypes.shape({
+      description: PropTypes.string,
       id: PropTypes.string,
       title: PropTypes.string,
+      totalInventory: PropTypes.number,
+      vendor: PropTypes.string,
+    }),
+  ).isRequired,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+      id: PropTypes.string,
+      title: PropTypes.string,
+      totalInventory: PropTypes.number,
       vendor: PropTypes.string,
     }),
   ).isRequired,
