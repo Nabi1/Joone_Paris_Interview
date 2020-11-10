@@ -25,13 +25,11 @@ export const Products = ({
     if (!searchValue || filterBy.length === 0) {
       return setProductsToDisplay(products);
     }
-    // TODO : Use Regex to properly filter by insensitive case
-    filteredProducts = products.filter((product) => {
-      if (typeof product.node[filterBy] === 'number') {
-        return product.node[filterBy] === parseInt(searchValue, 10);
-      }
-      return product.node[filterBy].includes(searchValue);
-    });
+    const regex = new RegExp(`${searchValue}`, 'i');
+
+    filteredProducts = products.filter((product) =>
+      regex.test(product.node[filterBy]),
+    );
     return setProductsToDisplay(filteredProducts);
   };
 
@@ -93,16 +91,16 @@ export const Products = ({
       </Button>
     );
   };
+
   return (
     <Paper className="d-flex w-100 p-3 mt-5 mb-3" elevation={5}>
       <Styles.List className="mt-5">
         <List
-          clickableRows
-          listSize={10}
-          totalElt={10}
+          listSize={productsToDisplay.length}
+          totalElt={productsToDisplay.length}
           data={rows}
           listConfig={listConfig}
-          page={1}
+          page={0}
           actions={[addItem]}
         />
       </Styles.List>

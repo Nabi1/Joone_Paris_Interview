@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const getProducts = ()=> async (req, res) => {
+const getProducts = () => async (req, res) => {
   fetch("https://jooneparis.myshopify.com/admin/api/graphql.json", {
     method: "POST",
     headers: {
@@ -30,7 +30,15 @@ const getProducts = ()=> async (req, res) => {
       return result.json();
     })
     .then(data => {
-      res.send(data.data.shop.products.edges);
-    });
+      if(data.errors){
+        throw new Error(data.errors)
+      }
+      if(data.data && data.data.shop && data.data.shop.products){
+        res.send(data.data.shop.products.edges);
+      }
+    }).catch(err=>{
+    console.error('err :',err );
+    res.send([])
+  });
 };
 module.exports = getProducts;

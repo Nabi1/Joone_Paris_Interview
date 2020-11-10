@@ -7,61 +7,25 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Typography from '@material-ui/core/Typography';
 
 import Styles from './List.styles';
 
-/**
- * This component was build by my colleagues and I at Strateos (my current company)
- * You could also visualize this component on Bit website
- *
- * https://bit.dev/strateosdev/strateosdev/ui/generic/list
- */
-
 const List = ({
   actions,
   data,
-  clickableRows,
-  onClick,
   handleChangePage,
   listConfig,
   listSize,
   order,
   orderBy,
   page,
-  handleSortRequest,
   title,
   totalElt,
   ...props
 }) => {
-  /**
-   *
-   * @param field {object}
-   * @returns {*}
-   */
-  function sortedCell(field) {
-    return (
-      <Styles.ListCell
-        key={field.id}
-        sortDirection={orderBy === field.id ? order : false}
-      >
-        <TableSortLabel
-          active={orderBy === field.id}
-          direction={order}
-          onClick={() => handleSortRequest(field.id)}
-        >
-          {field.label}
-        </TableSortLabel>
-      </Styles.ListCell>
-    );
-  }
-
   function renderListHeader() {
     const headerContent = listConfig.map((field) => {
-      if (field.sortable) {
-        return sortedCell(field);
-      }
       return <Styles.ListCell key={field.id}>{field.label}</Styles.ListCell>;
     });
     if (actions.length > 0) {
@@ -81,11 +45,9 @@ const List = ({
    */
   function renderData(elt) {
     return (
-      <TableRow hover={clickableRows}>
+      <TableRow>
         {listConfig.map((field) => (
-          <Styles.ListCell key={field.id} onClick={() => onClick(elt)}>
-            {elt[field.id]}
-          </Styles.ListCell>
+          <Styles.ListCell key={field.id}>{elt[field.id]}</Styles.ListCell>
         ))}
         {actions.length > 0 && (
           <Styles.ListCell key={elt.id}>
@@ -148,12 +110,9 @@ const List = ({
 
 List.defaultProps = {
   actions: [],
-  clickableRows: false,
-  onClick: null,
   handleChangePage: null,
   order: 'desc',
   orderBy: null,
-  handleSortRequest: null,
   title: '',
   className: '',
 };
@@ -161,8 +120,6 @@ List.defaultProps = {
 List.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.func),
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  clickableRows: PropTypes.bool,
-  onClick: PropTypes.func,
   handleChangePage: PropTypes.func,
   listConfig: PropTypes.arrayOf(
     PropTypes.shape({
@@ -175,7 +132,6 @@ List.propTypes = {
   order: PropTypes.string,
   orderBy: PropTypes.string,
   page: PropTypes.number.isRequired,
-  handleSortRequest: PropTypes.func,
   title: PropTypes.string,
   totalElt: PropTypes.number.isRequired,
   className: PropTypes.string,
