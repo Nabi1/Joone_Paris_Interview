@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+require('dotenv').config()
 
 const getProducts = () => async (req, res) => {
   fetch("https://jooneparis.myshopify.com/admin/api/graphql.json", {
