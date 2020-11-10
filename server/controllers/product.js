@@ -5,7 +5,7 @@ const getProducts = ()=> async (req, res) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-Shopify-Access-Token":  process.env.TOKEN_ACCESS
+      "X-Shopify-Access-Token": process.env.ACCESS_TOKEN
     },
     body: JSON.stringify({
       query: `{

@@ -12,6 +12,13 @@ import Typography from '@material-ui/core/Typography';
 
 import Styles from './List.styles';
 
+/**
+ * This component was build by my colleagues and I at Strateos (my current company)
+ * You could also visualize this component on Bit website
+ *
+ * https://bit.dev/strateosdev/strateosdev/ui/generic/list
+ */
+
 const List = ({
   actions,
   data,
@@ -28,7 +35,6 @@ const List = ({
   totalElt,
   ...props
 }) => {
-
   /**
    *
    * @param field {object}
