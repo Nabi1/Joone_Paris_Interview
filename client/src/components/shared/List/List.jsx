@@ -98,7 +98,7 @@ const List = ({
           nextIconButtonProps={{
             'aria-label': 'Next Page',
           }}
-          onChangePage={handleChangePage}
+          onChangePage={()=>{}}
           page={page}
           rowsPerPage={listSize}
           rowsPerPageOptions={[listSize]}
