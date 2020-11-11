@@ -2,12 +2,11 @@
 ### React / Graphql / NodeJs / Express
 
 
-> Thanks for giving my the opportunity to do this interview.
+> Thanks for giving me the opportunity to do this interview.
 
-> Before going further, you should get the provided ACCESS_TOKEN from the last email I send to Maria R. (Your favorite Talent & Acquisition Specialist).
-> This ACCESS_TOKEN also the Password that Maria send me.
+> Before going further, you should get the provided ACCESS_TOKEN from the last email I sent to Maria R. (Your favorite Talent & Acquisition Specialist). 
 
->Usually this ACCESS_TOKEN should be listed in a config file like .env
+> This ACCESS_TOKEN should be stored in a config file like .env (more details in the Usage section)
 
 
 ## Usage
