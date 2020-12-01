@@ -2,7 +2,7 @@
 ### React / Graphql / NodeJs / Express
 
 
-> Before going further, you should get the provided ACCESS_TOKEN from the last email I sent to Maria R. (Your favorite Talent & Acquisition Specialist). 
+> Before going further, you should get the provided ACCESS_TOKEN.
 
 > This ACCESS_TOKEN should be stored in a config file like .env (more details in the Usage section).
 
