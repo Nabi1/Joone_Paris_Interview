@@ -1,8 +1,6 @@
-# ![alt text](https://cdn.shopify.com/s/files/1/1956/4693/files/flavicon-joone_small.png?v=1545216161) Joone Interview FullStack App  ![alt text](https://cdn.shopify.com/s/files/1/1956/4693/files/flavicon-joone_small.png?v=1545216161)
+# ![alt text](https://cdn.shopify.com/s/files/1/1956/4693/files/flavicon-joone_small.png?v=1545216161) FullStack App  ![alt text](https://cdn.shopify.com/s/files/1/1956/4693/files/flavicon-joone_small.png?v=1545216161)
 ### React / Graphql / NodeJs / Express
 
-
-> Thanks for giving me the opportunity to do this interview.
 
 > Before going further, you should get the provided ACCESS_TOKEN from the last email I sent to Maria R. (Your favorite Talent & Acquisition Specialist). 
 
